@@ -15,18 +15,34 @@ url = args.url.rstrip("/")
 found_links = []
 
 # initializeing crawler
-crawler = Crawler(url, exclude=args.exclude, no_verbose=args.no_verbose);
+crawler = Crawler(url, exclude=args.exclude, no_verbose=args.no_verbose)
 
 # fetch links
 links = crawler.start()
 
+def sanitize_link(link):
+    if link.lower().startswith("http"):
+        return link
+    if link.startswith("#"):
+        return "/" + link
+    if not link.startswith("/"):
+        return "/" + link
+    return link
 
 #write into file
 with open(args.output, "w") as file: 
 	file.write('<?xml version="1.0" encoding="UTF-8"?>\n\t<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
 	for link in links:
-		file.write("\n\t\t<url>\n\t\t\t<loc>\n\t\t\t\t{0}{1}/\n\t\t\t</loc>\n\t\t</url>".format(url, link))
+		prefix = ""
+		if link.startswith(url):
+			prefix = ""
+		else:
+			prefix = url
+		f_link = sanitize_link( link)
+		print( "flink:  ", f_link)
+
+		file.write("\n\t\t<url>\n\t\t\t<loc>\n\t\t\t\t{0}{1}\n\t\t\t</loc>\n\t\t</url>".format(prefix, f_link))
 
 	file.write('</urlset>')
 
