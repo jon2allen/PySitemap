@@ -25,3 +25,9 @@ If you want to restrict some urls from being visited by crawler you can exclude 
 ```
 python main.py --url="https://www.finstead.com" --output="/custom/path/sitemap.xml" --exclude="\.jpg|\.png"
 ```
+
+if you want to not get wordpress response tags
+
+```
+python main.py --url="https://www.jibsheet.net" --exlude="#resp" --output="test.xml"
+```
