@@ -63,6 +63,8 @@ with open(args.output, "w") as file:
 			prefix = url
 		f_link = sanitize_link( link)
 		print( "flink:  ", f_link)
+		if (prefix.startswith('http') and link.startswith('http') ):
+			continue
 		if args.wp:
 			if not wp_remove_dup(link):
 				file.write("\n\t\t<url>\n\t\t\t<loc>\n\t\t\t\t{0}{1}\n\t\t\t</loc>\n\t\t</url>".format(prefix, f_link))
