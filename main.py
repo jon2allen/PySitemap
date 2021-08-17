@@ -66,7 +66,8 @@ with open(args.output, "w") as file:
 		if args.wp:
 			if not wp_remove_dup(link):
 				file.write("\n\t\t<url>\n\t\t\t<loc>\n\t\t\t\t{0}{1}\n\t\t\t</loc>\n\t\t</url>".format(prefix, f_link))
-
+		else:
+				file.write("\n\t\t<url>\n\t\t\t<loc>\n\t\t\t\t{0}{1}\n\t\t\t</loc>\n\t\t</url>".format(prefix, f_link))
 	file.write('</urlset>')
 
 
