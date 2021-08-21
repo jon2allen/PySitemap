@@ -18,7 +18,7 @@ for item in test_list:
 assert (wp_remove_dup(test_list[0]) == False)    
 assert (wp_remove_dup(test_list[1]) == True) 
 assert (wp_remove_dup(test_list[2]) == True) 
-assert (wp_remove_dup(test_list[3]) == False) 
+assert (wp_remove_dup(test_list[3]) == True) 
 assert (wp_remove_dup(test_list[4]) == True) 
 assert (wp_remove_dup(test_list[5]) == False) 
 """"

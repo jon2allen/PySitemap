@@ -47,7 +47,7 @@ def wp_remove_dup(link):
        test for page to preserve categories, tags
     """
     if "page" in link.lower():
-        return False
+        return True
     split_url = link.split("/")
     item = ''.join(split_url[-2:-1])
 
