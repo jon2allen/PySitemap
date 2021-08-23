@@ -29,5 +29,5 @@ python main.py --url="https://www.finstead.com" --output="/custom/path/sitemap.x
 if you want to not get wordpress response tags
 
 ```
-python main.py --url="https://www.jibsheet.net" --exlude="#resp" --output="test.xml"
+python main.py --url="https://www.jibsheet.net" --exclude="#resp" --output="test.xml"
 ```
